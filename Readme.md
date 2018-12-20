@@ -10,8 +10,11 @@
 2. [Make Persistent Tab for Bottom Navigation](https://stackoverflow.com/questions/52598900/flutter-bottomnavigationbar-rebuilds-page-on-change-of-tab)
 
 ## App Template
-See app_template_tabbed_ui folder.
-
+### Material Design:
+  - See app_template_tabbed_ui folder.
+### iOS Design:
+  - See app_template_tabbed_ui_iOS folder.
+  
 # 2. Common Flutter Build Errors
 *Flutter error*
 Multiple commands produce '/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework
