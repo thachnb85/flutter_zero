@@ -14,8 +14,33 @@
   - See app_template_tabbed_ui folder.
 ### iOS Design:
   - See app_template_tabbed_ui_iOS folder.
+
+
+# 2. Handle buggy Package/Plugin
+Packages from [dartlang](https://pub.dartlang.org/packages/) are buggy and have ton of bugs.
+What to do if our dependencies suck? Here is step by step guide:
+
+### Right click on package import file name, choose Reveal in Finder
+ Or CMD+Click on that file name to go to that file
+ Then Right click anywhere in the file and choose "Reveal in Finder", 
+ Normally it's located at ~/.pub-cache/hosted/pub.darlang.org/name_of_package
   
-# 2. Common Flutter Build Errors
+### Copy whole package folder to your app folder
+ For easy hijacking files, just copy all to your app folder, renaming version or note
+ For example: flutter_abcd-0.4.1-hijacking
+ Now you can modify whatever you want to fix bug locally
+ 
+### Modify pubspec.yaml to point to local package
+ Open your project pubspec.yaml
+ Change path of dependencies to, for example:
+```
+  flutter_abcd:
+    path: ./flutter_abcd-0.4.1-hijacking/
+```
+
+### Not-so-happy coding!
+
+# 3. Common Flutter Build Errors
 *Flutter error*
 Multiple commands produce '/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework
 
