@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 class SecondTab extends StatefulWidget {
   @override
@@ -34,7 +33,7 @@ class SecondTabState extends State<SecondTab> with AutomaticKeepAliveClientMixin
 
           // One slider
           children: <Widget>[
-            CupertinoSlider(
+              Slider(
                 value: _value,
                 min: 0.0,
                 max: 100.0,
