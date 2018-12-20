@@ -38,7 +38,7 @@ What to do if our dependencies suck? Here is step by step guide:
     path: ./flutter_abcd-0.4.1-hijacking/
 ```
 
-### Not-so-happy coding!
+### Happy coding!
 
 # 3. Common Flutter Build Errors
 *Flutter error*
