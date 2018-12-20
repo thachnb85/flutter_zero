@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: new CupertinoTabScaffold(
         tabBar: new CupertinoTabBar(
-          iconSize: 35.0,
+          //iconSize: 35.0,
           onTap: (index) {
             setState(() => currentIndex = index);
           },
