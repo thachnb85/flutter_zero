@@ -56,6 +56,7 @@ class _HomeState extends State<HomeBottom> {
     );
   }
 
+  //// PUSHING NEW VIEW USING THIS CODE WILL BE SHOWN UNDER TAB BAR
   Widget _body() {
     return Stack(
         children: List<Widget>.generate(_pageCount, (int index) {
@@ -76,6 +77,22 @@ class _HomeState extends State<HomeBottom> {
     }),
     );
   }
+
+  //// PUSHING NEW VIEW USING THIS CODE WILL BE SHOWN OVER TAB BAR
+//    Widget _body() {
+//      return Stack(
+//        children: <Widget>[
+//          new Offstage(
+//            offstage: _pageIndex != 0,
+//            child: FirstTab()
+//          ),
+//          new Offstage(
+//              offstage: _pageIndex != 1,
+//              child: SecondTab()
+//          ),
+//        ]
+//      );
+//    }
 
   Widget _page(int index) {
     switch (index) {
