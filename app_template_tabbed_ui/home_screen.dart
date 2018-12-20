@@ -1,81 +1,90 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'page1.dart';
-import 'page2.dart';
-import 'page3.dart';
-import 'page4.dart';
+import 'first_tab.dart';
+import 'second_tab.dart';
 
-class HomeScreen extends StatefulWidget {
+////===========================================================================
+//// Material app with tab bar on BOTTOM
+//// We use BottomNavigationBar
+//// Need to implement navigation
+//// https://stackoverflow.com/questions/52598900/flutter-bottomnavigationbar-rebuilds-page-on-change-of-tab
+
+class HomeBottom extends StatefulWidget {
   @override
-  _HomeScreenState createState() => new _HomeScreenState();
+  State<StatefulWidget> createState() {
+    return _HomeState();
+  }
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  final List<dynamic> pages = [
-    new Page1(),
-    new Page2(),
-    new Page3(),
-    new Page4(),
-  ];
+class _HomeState extends State<HomeBottom> {
 
-  int currentIndex = 0;
+  final int _pageCount = 2;
+  int _pageIndex = 0;
+
+  // Handle tap on navigation item
+  void onTabTapped(int index) {
+    setState(() {
+      _pageIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new WillPopScope(
-      onWillPop: () async {
-        await Future<bool>.value(true);
-      },
-      child: new CupertinoTabScaffold(
-        tabBar: new CupertinoTabBar(
-          //iconSize: 35.0,
-          onTap: (index) {
-            setState(() => currentIndex = index);
-          },
-          // activeColor: currentIndex == 0 ? Colors.white : Colors.black,
-          // inactiveColor: currentIndex == 0 ? Colors.green : Colors.grey,
-          // backgroundColor: currentIndex == 0 ? Colors.black : Colors.white,
-          currentIndex: currentIndex,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('Home'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.pages),
-              title: Text('Page'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.info),
-              title: Text('Info'),
-            ),
-          ],
-        ),
-        tabBuilder: (BuildContext context, int index) {
-          return new DefaultTextStyle(
-            style: const TextStyle(
-              fontFamily: '.SF UI Text',
-              fontSize: 17.0,
-              color: CupertinoColors.black,
-            ),
-            child: new CupertinoTabView(
-              routes: <String, WidgetBuilder>{
-                '/Page1': (BuildContext context) => new Page1(),
-                '/Page2': (BuildContext context) => new Page2(),
-                '/Page3': (BuildContext context) => new Page3(),
-                '/Page4': (BuildContext context) => new Page4(),
-              },
-              builder: (BuildContext context) {
-                return pages[currentIndex];
-              },
-            ),
-          );
-        },
+    return Scaffold(
+      // For title
+      //appBar: AppBar(
+      //  title: Text('Tabs Demo'),
+      //),
+
+      // Build the body
+      body: _body(),
+
+      // Bottom navigation bar, need to handle onTap to load index.
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
+        currentIndex: _pageIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.home),
+            title: new Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.mail),
+            title: new Text('Messages'),
+          )
+        ],
       ),
     );
+  }
+
+  Widget _body() {
+    return Stack(
+        children: List<Widget>.generate(_pageCount, (int index) {
+      return IgnorePointer(
+        ignoring: index != _pageIndex,
+        child: Opacity(
+          opacity: _pageIndex == index ? 1.0 : 0.0,
+          child: Navigator(
+            onGenerateRoute: (RouteSettings settings) {
+              return new MaterialPageRoute(
+                builder: (_) => _page(index),
+                settings: settings,
+              );
+            },
+          ),
+        ),
+      );
+    }),
+    );
+  }
+
+  Widget _page(int index) {
+    switch (index) {
+      case 0:
+        return FirstTab();
+      case 1:
+        return SecondTab();
+    }
+
+    throw "Invalid index $index";
   }
 }
