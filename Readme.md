@@ -21,21 +21,21 @@ Packages from [dartlang](https://pub.dartlang.org/packages/) are buggy and have 
 What to do if our dependencies suck? Here is step by step guide:
 
 ### Right click on package import file name, choose Reveal in Finder
- Or CMD+Click on that file name to go to that file
+ Or Command + click on that file name to navigate to that file.
  Then Right click anywhere in the file and choose "Reveal in Finder", 
- Normally it's located at ~/.pub-cache/hosted/pub.darlang.org/name_of_package
+ Normally it's located at ~/.pub-cache/hosted/pub.darlang.org/flutter_abc-0.4.1
   
 ### Copy whole package folder to your app folder
- For easy hijacking files, just copy all to your app folder, renaming version or note
- For example: flutter_abcd-0.4.1-hijacking
+ For easy hijacking files, just copy all to your app folder, renaming version, etc.
+ For example: `flutter_abc-0.4.1-hijacking`
  Now you can modify whatever you want to fix bug locally
  
 ### Modify pubspec.yaml to point to local package
  Open your project pubspec.yaml
  Change path of dependencies to, for example:
 ```
-  flutter_abcd:
-    path: ./flutter_abcd-0.4.1-hijacking/
+  flutter_abc:
+    path: ./flutter_abc-0.4.1-hijacking/
 ```
 
 ### Happy coding!
