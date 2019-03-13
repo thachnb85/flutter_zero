@@ -43,8 +43,6 @@ What to do if our dependencies suck? Here is step by step guide:
     path: ./flutter_abc-0.4.1-hijacking/
 ```
 
-### Happy coding!
-
 # 3. Common Flutter Build Errors
 *Flutter error*
 Multiple commands produce '/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework
@@ -53,3 +51,6 @@ Multiple commands produce '/build/ios/Debug-iphonesimulator/Runner.app/Framework
 Opening the Runner workspace project in Xcode 10. Then navigate to File, Workspace Settings and change the build system to Legacy Build System.
 
 [Source](https://github.com/flutter/flutter/issues/20685)
+
+# 4. Platform Specific UIs
+
