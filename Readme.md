@@ -1,3 +1,6 @@
+# 0. IDE
+- Visual Studio Code, theme Monokai
+- Android Studio, theme GapStyles 2.2
 
 # 1. Tutorial for Tabbed UI App
 
