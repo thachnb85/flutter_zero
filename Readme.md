@@ -55,5 +55,17 @@ Opening the Runner workspace project in Xcode 10. Then navigate to File, Workspa
 
 [Source](https://github.com/flutter/flutter/issues/20685)
 
-# 4. Platform Specific UIs
+# 4. Built Value for generating code
+Resources: https://github.com/tensor-programming/built_flutter_tutorial
+Git: https://github.com/google/built_value.dart
+Adding Live Template using the template provided in the website, then run the script from Android Studio console:
+```
+flutter packages pub run build_runner build
+```
+or watch the changes and update generated code using:
+```
+flutter packages pub run build_runner watch
+```
+
+
 
