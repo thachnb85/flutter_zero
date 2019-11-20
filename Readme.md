@@ -66,6 +66,7 @@ or watch the changes and update generated code using:
 ```
 flutter packages pub run build_runner watch
 ```
+More tutorial on built_value https://medium.com/dartlang/moving-fast-with-dart-immutable-values-1e717925fafb
 
 
 
